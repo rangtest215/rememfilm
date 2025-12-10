@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import videosData from '../data/videos.json';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import './Videography.css';
 
 const Videography = () => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        setVideos(videosData);
+        const fetchVideos = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, 'videos'));
+                const videosData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setVideos(videosData);
+            } catch (error) {
+                console.error("Error fetching videos: ", error);
+            }
+        };
+
+        fetchVideos();
     }, []);
 
     return (

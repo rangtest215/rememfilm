@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import photosData from '../data/photos.json';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import './Photography.css';
 
 const Photography = () => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
-        setAlbums(photosData);
+        const fetchAlbums = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, 'albums'));
+                const albumsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setAlbums(albumsData);
+            } catch (error) {
+                console.error("Error fetching albums: ", error);
+            }
+        };
+
+        fetchAlbums();
     }, []);
 
     return (
