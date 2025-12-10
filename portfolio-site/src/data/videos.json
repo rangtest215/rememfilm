@@ -1,0 +1,26 @@
+[
+    {
+        "id": "v1",
+        "title": "Cinematic Wedding Highlight",
+        "description": "A beautiful wedding highlight reel.",
+        "youtubeId": "bJy3h5cn7Zg"
+    },
+    {
+        "id": "v2",
+        "title": "Corporate Event Recap",
+        "description": "Highlights from the annual tech conference.",
+        "youtubeId": "VBep0N0EzvY"
+    },
+    {
+        "id": "v3",
+        "title": "Music Video Production",
+        "description": "Behind the scenes of a music video shoot.",
+        "youtubeId": "yTXJEcMzANw"
+    },
+    {
+        "id": "v4",
+        "title": "Hank Video Production",
+        "description": "Behind the scenes of a music video shoot.",
+        "youtubeId": "Zp63g29S4sk"
+    }
+]
